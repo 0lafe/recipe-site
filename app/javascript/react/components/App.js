@@ -1,7 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
+import helperFetch from './helpers/Fetcher'
+import LandingPageComponent from './layout/LandingPageComponent'
+import NavBar from './layout/NavBar'
 
 export const App = (props) => {
-  return (<h1>Make It So React</h1>)
+  const [currentUser, setCurrentUser] = useState(null)
+
+  useEffect(() => {
+    helperFetch('/api/v1/users').then(userData => {
+      if (userData) {
+        setCurrentUser(userData.user)
+      }
+    })
+  }, [])
+
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={LandingPageComponent}/>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
 export default App
