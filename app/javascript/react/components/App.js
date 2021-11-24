@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import helperFetch from './helpers/Fetcher'
 import LandingPageComponent from './layout/LandingPageComponent'
-import NavBar from './layout/NavBar'
 
 export const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null)
