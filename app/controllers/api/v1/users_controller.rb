@@ -7,4 +7,5 @@ class Api::V1::UsersController < ApplicationController
           render json: {}
         end 
     end
+    
 end
