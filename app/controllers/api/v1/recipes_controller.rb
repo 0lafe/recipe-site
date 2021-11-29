@@ -5,6 +5,10 @@ class Api::V1::RecipesController < ApplicationController
     end
 
     def show
-        render json: Recipe.find(params["id"])
+        if Recipe.exists?(api_id: params["id"])
+            render json: Recipe.where(api_id: params["id"])
+        else 
+            render json: [Spoonacular.get_by_id(params["id"])]
+        end
     end
 end

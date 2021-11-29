@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_11_24_012430) do
     t.text "ingredients", null: false
     t.text "instructions", null: false
     t.text "description"
+    t.integer "api_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
