@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
         if current_user 
           render json: current_user 
         else 
-          render json: {}, status: 401
+          render json: {}
         end 
     end
 end

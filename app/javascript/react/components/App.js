@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import helperFetch from './helpers/Fetcher'
 import LandingPageComponent from './layout/LandingPageComponent'
+import RecipeIndexContainer from './recipes/RecipeIndexContainer'
 
 export const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null)
@@ -18,6 +19,7 @@ export const App = (props) => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={LandingPageComponent}/>
+        <Route exact path="/recipes" component={RecipeIndexContainer}/>
       </Switch>
     </BrowserRouter>
   )
