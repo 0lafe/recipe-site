@@ -1,3 +1,5 @@
+require './config/environment'
+
 namespace :spoonAPI do |args|
     task :reset => [ :environment ] do
         SpoonacularApiRequest.delete_all
