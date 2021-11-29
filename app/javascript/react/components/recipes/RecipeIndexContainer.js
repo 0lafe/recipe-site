@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react"
 import helperFetch from "../helpers/Fetcher"
 import RecipeIndexTile from "./RecipeIndexTile"
+import RecipeSearch from "./RecipeSearch"
 
 const RecipeIndexContainer = (props) => {
-    const [recipes, setRecipes] = useState([])
+    const { recipes, setRecipes } = props
 
     useEffect(() => {
         helperFetch('api/v1/recipes').then(recipes => {
@@ -20,6 +21,7 @@ const RecipeIndexContainer = (props) => {
 
     return (
         <div>
+            <RecipeSearch setRecipes={setRecipes}/>
             {tiles}
         </div>
     )

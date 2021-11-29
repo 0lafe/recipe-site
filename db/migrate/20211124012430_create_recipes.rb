@@ -5,6 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[6.1]
       t.text :ingredients, null: false
       t.text :instructions, null: false
       t.text :description
+      t.integer :api_id
       t.timestamps
     end
   end
