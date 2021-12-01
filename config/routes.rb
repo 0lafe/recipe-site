@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :users, only: [:index]
       resources :recipes, only: [:index, :show]
       resources :spoon_recipes, only: [:index]
+      resources :user_favorites, only: [:create]
     end
   end
 

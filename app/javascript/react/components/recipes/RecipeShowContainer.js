@@ -3,13 +3,32 @@ import helperFetch from "../helpers/Fetcher"
 
 const RecipeShowContainer = (props) => {
     const [recipe, setRecipe] = useState(null)
+    const [favorited, setFavorited] = useState(false)
     let recipeShow
 
     useEffect(() => {
         helperFetch(`/api/v1/recipes/${props.match.params.id}`).then(receivedRecipe => {
-            setRecipe(receivedRecipe[0])
+            setRecipe(receivedRecipe.recipe)
+            setFavorited(receivedRecipe.favorited)
         })
     }, [])
+
+    const favorite = async (event) => {
+        console.log("favorited!")
+        const response = await fetch('/api/v1/user_favorites', {
+            method:"POST",
+            headers:{
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+            },
+            credentials:"same-origin",
+            body: JSON.stringify({recipe: recipe.id})
+        })
+        const responseJson = await response.json()
+        if (responseJson.success) {
+            setFavorited(!favorited)
+        }
+    }
 
     const checkIfUrl = (string) => {
         let url;
@@ -26,6 +45,7 @@ const RecipeShowContainer = (props) => {
         if (recipe.image) {
             imageSrc = <img className="recipe-show-image" src={recipe.image}/>
         }
+
         let stepTiles
         if (checkIfUrl(recipe.instructions)){
             stepTiles = <span>Sorry we don't have the instructions but you can find them <a href={recipe.instructions}>here!</a></span>
@@ -45,9 +65,18 @@ const RecipeShowContainer = (props) => {
             )
         })
 
+        let starText = "☆"
+        if (favorited) {
+            starText = "★"
+        }
+        const favoriteButton = <button className="favorite-button" onClick={favorite}>{starText}</button>
+
         recipeShow = (
             <div className="recipe-show-tile grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
-                <h2 className="recipe-title text-center cell small-8">{recipe.title}</h2>
+                <div className="cell small-8 recipe-tile-header">
+                    <span className="recipe-title">{recipe.title}</span>
+                    {favoriteButton}
+                </div>
                 <div className="cell small-8 text-center">
                     {imageSrc}
                 </div>
