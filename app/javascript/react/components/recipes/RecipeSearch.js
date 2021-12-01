@@ -37,10 +37,15 @@ const RecipeSearch = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="text" value={searchParams} onChange={handleChange}/>
-            <input type="submit"/>
-        </form>
+        <div className="cell small-8">
+            <div className="search-text">
+                <span>Search for a recipe here</span>
+            </div>
+            <form onSubmit={handleSubmit} className="search-field">
+                <input className="search-bar" type="text" value={searchParams} onChange={handleChange}/>
+                <input className="search-button" type="submit" value="🔍"/>
+            </form>
+        </div>
     )
 }
 

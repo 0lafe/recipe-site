@@ -22,29 +22,44 @@ const RecipeShowContainer = (props) => {
     }
 
     if (recipe) {
-        let instructions = <p>{recipe.instructions}</p>
+
+        let stepTiles
         if (checkIfUrl(recipe.instructions)){
-            instructions = <span>Sorry we don't have the instructions but you can find them <a href={recipe.instructions}>here!</a></span>
+            stepTiles = <span>Sorry we don't have the instructions but you can find them <a href={recipe.instructions}>here!</a></span>
+        } else {
+            const recipeList = recipe.instructions.split(".")
+            recipeList.pop()
+            stepTiles = recipeList.map(step => {
+                return (
+                    <li key={step} className="instruction">{step}</li>
+                )
+            })
         }
-        let ingredientTiles = recipe.ingredients.split(":=:").map(ingredient => {
+
+        const ingredientTiles = recipe.ingredients.split(":=:").map(ingredient => {
             return (
-                <li key={ingredient}>{ingredient}</li>
+                <li key={ingredient} className="ingredient">{ingredient}</li>
             )
         })
+
         recipeShow = (
-            <div className="recipe-show-tile">
-                <h2>{recipe.title}</h2>
-                <hr/>
-                <ul>{ingredientTiles}</ul>
-                <hr/>
-                {instructions}
+            <div className="recipe-show-tile grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
+                <h2 className="recipe-title text-center cell small-8">{recipe.title}</h2>
+                <div className="ingredient-container cell small-6">
+                    <span className="ingredient-title">Ingredients:</span>
+                    <ul className="ingredients-list">{ingredientTiles}</ul>
+                </div>
+                <div className="step-container cell small-6">
+                    <span className="instructions-text">Instructions:</span>
+                    <ul className="recipe-steps">{stepTiles}</ul>
+                </div>
             </div>
         )
     }
 
     return (
-        <div>
-            {recipeShow}
+        <div className="grid-container">
+                {recipeShow}
         </div>
     )
 }

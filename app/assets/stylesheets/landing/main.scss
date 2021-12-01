@@ -1,3 +1,23 @@
+.clickable-button:hover {
+    background: #D8C3A5;
+    color: #E98074;
+    font-size: larger;
+}
+
 .clickable-button {
-    background: orange;
+    background: #D8C3A5;
+    color: #E85A4F;
+    font-size: larger;
+}
+
+body {
+    background: #EAE7DC;
+}
+
+a:hover {
+    color: #E98074;
+}
+
+a {
+    color: #E85A4F;
 }
