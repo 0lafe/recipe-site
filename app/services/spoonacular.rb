@@ -7,7 +7,7 @@ class Spoonacular
     SCALING_FACTOR = 100
     MAX_REQUESTS = (ENV["REQUEST_LIMIT"].to_i * SCALING_FACTOR).to_i
 
-    def self.get_by_name(ingredient_name, offset = 0, sort_method = "random")
+    def self.get_by_name(ingredient_name, offset = 0, sort_method = "popularity")
         type = "complexSearch"
         params = "&query=#{ingredient_name}&offset=#{offset}"
         sort = "&sort=#{sort_method}"

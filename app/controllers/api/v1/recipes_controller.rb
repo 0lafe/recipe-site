@@ -1,7 +1,7 @@
 class Api::V1::RecipesController < ApplicationController
 
     def index
-        render json: Recipe.limit(5).order("RANDOM()")
+        render json: Recipe.limit(6).order("RANDOM()")
     end
 
     def show

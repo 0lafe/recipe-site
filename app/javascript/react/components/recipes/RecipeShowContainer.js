@@ -22,7 +22,10 @@ const RecipeShowContainer = (props) => {
     }
 
     if (recipe) {
-
+        let imageSrc = ""
+        if (recipe.image) {
+            imageSrc = <img className="recipe-show-image" src={recipe.image}/>
+        }
         let stepTiles
         if (checkIfUrl(recipe.instructions)){
             stepTiles = <span>Sorry we don't have the instructions but you can find them <a href={recipe.instructions}>here!</a></span>
@@ -45,6 +48,9 @@ const RecipeShowContainer = (props) => {
         recipeShow = (
             <div className="recipe-show-tile grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
                 <h2 className="recipe-title text-center cell small-8">{recipe.title}</h2>
+                <div className="cell small-8 text-center">
+                    {imageSrc}
+                </div>
                 <div className="ingredient-container cell small-6">
                     <span className="ingredient-title">Ingredients:</span>
                     <ul className="ingredients-list">{ingredientTiles}</ul>
