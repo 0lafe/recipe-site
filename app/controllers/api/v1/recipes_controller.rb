@@ -9,7 +9,7 @@ class Api::V1::RecipesController < ApplicationController
             recipe = Recipe.where(api_id: params["id"])[0]
             render json: {recipe: recipe, favorited: UserFavorite.exists?(user: current_user, recipe: recipe)}
         else 
-            render json: [Spoonacular.get_by_id(params["id"])]
+            render json: {recipe: Spoonacular.get_by_id(params["id"]), favorited: false}
         end
     end
 end
