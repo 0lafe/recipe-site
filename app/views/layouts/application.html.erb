@@ -17,6 +17,7 @@
     </div>
     <div class="top-bar-right">
       <% if signed_in? %>
+        <span class="nav-text nav-links"><%= link_to "Profile", "/user" %></span>
         <span class="nav-text nav-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></span>
       <% else %>
         <span class="nav-text nav-links"><%= link_to "Sign In", new_user_session_path %></span>
