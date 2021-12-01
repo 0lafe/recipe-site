@@ -7,13 +7,19 @@ const RecipeSearchContainer = (props) => {
     const tiles = recipes.map(recipe => {
         return (
             <RecipeIndexTile key={recipe.id}
+            classname="recipe-tile cell small-8"
             recipe={recipe}/>
         )
     })
 
     return (
-        <div>
-            {tiles}
+        <div className="grid-container text-center">
+            <div className="grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
+                <div className="cell small-8">
+                    <span className="search-text">Results:</span>
+                </div>
+                {tiles}
+            </div>
         </div>
     )
 }

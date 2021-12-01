@@ -12,11 +12,13 @@ const RecipeIndexTile = (props) => {
     }
     
     return (
-        <Link to={`/recipes/${id}`}>
-            <div className="recipe-tile">
-                <span>{recipe.title}</span>
-            </div>
-        </Link>
+        <div className="cell small-8">
+            <Link to={`/recipes/${id}`}>
+                <div className="recipe-tile">
+                    <span>{recipe.title}</span>
+                </div>
+            </Link>
+        </div>
     )
 }
 
