@@ -28,12 +28,21 @@
     font-size: 2rem;
 }
 
-.recipe-tile {
-    border: solid 2px dimgray;
-    font-size: 2rem;
-    padding: 0 1rem;
-}
-
 .search-text {
     font-size: 2rem;
+}
+
+.refresh {
+    font-size: 2rem;
+}
+
+.refresh-button:hover {
+    background: #D8C3A5;
+    color: #E98074;
+}
+
+.refresh-button {
+    background: #D8C3A5;
+    color: #E85A4F;
+    padding: 1rem;
 }

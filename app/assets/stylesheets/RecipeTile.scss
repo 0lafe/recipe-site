@@ -1,28 +1,24 @@
-.recipe-title {
-    font-size: 3rem;
+.recipe-tile-image {
+    width: 96px;
+    height: 96px;
+    // padding: 1rem;
+    margin: 1rem 0;
+    border: solid 1px dimgray;
+    border-radius: 2rem;
 }
 
-.ingredient-title {
-    font-size: 3rem;
+.recipe-tile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 2px dimgray;
+    font-size: 2rem;
+    padding: 0 1rem;
+    border-radius: 1rem;
 }
 
-.ingredient-container {
-    border: dimgray solid 1px;
-    margin-bottom: 1rem;
-}
-
-.step-container {
-    border: dimgray solid 1px;
-}
-
-.instructions-text {
-    font-size: 3rem;
-}
-
-.instruction {
-    margin-top: 1rem;
-}
-
-.ingredient {
-    margin-top: 1rem;
+.recipe-tile:hover {
+    // background: whitesmoke;
+    background: #D8C3A5;
 }

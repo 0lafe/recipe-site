@@ -20,6 +20,13 @@ const RecipeIndexContainer = (props) => {
         )
     })
 
+    const refresh = (event) => {
+        event.preventDefault()
+        helperFetch('api/v1/recipes').then(recipes => {
+            setRecipes(recipes)
+        })
+    }
+
     return (
         <div className="grid-container text-center">
             <div className="grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
@@ -28,6 +35,12 @@ const RecipeIndexContainer = (props) => {
                     <span>Don't know what you want to make? Here are some random recipes you might be interested in!</span>
                 </div>
                 {tiles}
+                <div className="cell small-8 refresh">
+                    <span>Nothing catch your eye? Try refreshing the list </span>
+                </div>
+                <div className="cell">
+                    <button className="clickable-button button" onClick={refresh}>Refresh</button>
+                </div>
             </div>
         </div>
     )

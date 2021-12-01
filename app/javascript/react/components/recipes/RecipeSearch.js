@@ -13,7 +13,7 @@ const RecipeSearch = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         getRecipes()
-        setSearchParams("")
+        // setSearchParams("")
     }
 
     const createParams = () => {
@@ -24,7 +24,6 @@ const RecipeSearch = (props) => {
 
     const getRecipes = async () => {
         const response = await fetch(createParams())
-        // const response = require("./testSearch.json")
         const responseJSON = await response.json()
         setRecipes(responseJSON.results)
         setSearched(true)
@@ -32,7 +31,7 @@ const RecipeSearch = (props) => {
 
     if (searched) {
         return (
-            <Redirect to="/recipes/search"/>
+            <Redirect to={`/recipes/search/${searchParams}`}/>
         )
     }
 
