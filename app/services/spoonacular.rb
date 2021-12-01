@@ -2,7 +2,7 @@ class Spoonacular
 
     SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes/"
     API_ADDITION = "?apiKey=#{ENV["SPOONACULAR_API_KEY"]}"
-    QUANTITY = 3
+    QUANTITY = 100
     TEST_JSON = "testRecipes.json"
 
     def self.get_by_name(ingredient_name, offset=0)
@@ -15,22 +15,21 @@ class Spoonacular
     def self.get_by_id(id)
         type = "#{id}/information"
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}"
-        # recipe = store_one_recipe(get_data(url))
+        SpoonacularApiRequest.increase_calls(1)
         return store_one_recipe(get_data(url))
     end
 
     def self.daily_random_seed
-        id_numbers = []
-        QUANTITY.times { id_numbers << rand(750000) }
-        ids = "&ids=#{id_numbers.join(",")}"
-        url = "#{SPOONACULAR_API_URL}informationBulk#{API_ADDITION}#{ids}"
-        store_recipe_data(File.read(TEST_JSON))
+        type = "random"
+        params = "&number=#{QUANTITY}"
+        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
+        binding.pry
+        store_recipe_data(get_data(url)["recipes"])
         SpoonacularApiRequest.increase_calls(1 + 0.5 * (QUANTITY-1))
     end
 
     def self.store_recipe_data(data)
-        prased_json = JSON.parse(data)
-        prased_json.each do |recipe|
+        data.each do |recipe|
             store_one_recipe(recipe)
         end
     end
