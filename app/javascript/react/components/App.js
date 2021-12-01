@@ -31,7 +31,9 @@ export const App = (props) => {
           <RecipeSearchContainer recipes={recipes}
           setRecipes={setRecipes}/>
         </Route>
-        <Route exact path="/recipes/:id" component={RecipeShowContainer}/>
+        <Route exact path="/recipes/:id" render={props => <RecipeShowContainer user={currentUser} routeProps={props}/>} />
+          {/* <RecipeShowContainer user={currentUser} {...props}/> */}
+        {/* </Route> */}
         <Route exact path="/user">
           <UserShowContainer user={currentUser}/>
         </Route>

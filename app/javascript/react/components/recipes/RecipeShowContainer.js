@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react"
 import helperFetch from "../helpers/Fetcher"
 
 const RecipeShowContainer = (props) => {
+    const { user, routeProps } = props
     const [recipe, setRecipe] = useState(null)
     const [favorited, setFavorited] = useState(false)
     let recipeShow
 
     useEffect(() => {
-        helperFetch(`/api/v1/recipes/${props.match.params.id}`).then(receivedRecipe => {
+        helperFetch(`/api/v1/recipes/${routeProps.match.params.id}`).then(receivedRecipe => {
             setRecipe(receivedRecipe.recipe)
             setFavorited(receivedRecipe.favorited)
         })
     }, [])
 
     const favorite = async (event) => {
-        console.log("favorited!")
         const response = await fetch('/api/v1/user_favorites', {
             method:"POST",
             headers:{
@@ -65,11 +65,14 @@ const RecipeShowContainer = (props) => {
             )
         })
 
-        let starText = "☆"
-        if (favorited) {
-            starText = "★"
+        let favoriteButton
+        if (user) {
+            let starText = "☆"
+            if (favorited) {
+                starText = "★"
+            }
+            favoriteButton = <button className="favorite-button" onClick={favorite}>{starText}</button>
         }
-        const favoriteButton = <button className="favorite-button" onClick={favorite}>{starText}</button>
 
         recipeShow = (
             <div className="recipe-show-tile grid-x grid-padding-x grid-margin-x align-center grid-padding-y">

@@ -48,7 +48,8 @@
 .favorite-button {
     font-size: 2rem;
     color: #E85A4F;
-    border: solid 1px dimgray;
-    border-radius: 4rem;
-    background: whitesmoke;
+}
+
+.favorite-button:hover {
+    transform:scale(2);
 }
