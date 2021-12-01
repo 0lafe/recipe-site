@@ -3,19 +3,23 @@ class Spoonacular
     SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes/"
     API_ADDITION = "?apiKey=#{ENV["SPOONACULAR_API_KEY"]}"
     QUANTITY = 100
-    TEST_JSON = "testRecipes.json"
+    #scaling factor is here to avoid floats and only use ints
+    SCALING_FACTOR = 100
+    MAX_REQUESTS = (ENV["REQUEST_LIMIT"].to_i * SCALING_FACTOR).to_i
 
-    def self.get_by_name(ingredient_name, offset=0)
+    def self.get_by_name(ingredient_name, offset = 0, sort_method = "random")
         type = "complexSearch"
         params = "&query=#{ingredient_name}&offset=#{offset}"
-        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
+        sort = "&sort=#{sort_method}"
+        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}#{sort}"
+        SpoonacularApiRequest.increase_calls((1 + 0.01 * 10) * SCALING_FACTOR)
         return get_data(url)
     end
 
     def self.get_by_id(id)
         type = "#{id}/information"
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}"
-        SpoonacularApiRequest.increase_calls(1)
+        SpoonacularApiRequest.increase_calls(1 * SCALING_FACTOR)
         return store_one_recipe(get_data(url))
     end
 
@@ -23,9 +27,8 @@ class Spoonacular
         type = "random"
         params = "&number=#{QUANTITY}"
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
-        binding.pry
         store_recipe_data(get_data(url)["recipes"])
-        SpoonacularApiRequest.increase_calls(1 + 0.5 * (QUANTITY-1))
+        SpoonacularApiRequest.increase_calls((1 + 0.01 * QUANTITY) * SCALING_FACTOR)
     end
 
     def self.store_recipe_data(data)
@@ -45,13 +48,17 @@ class Spoonacular
         else 
             instructions = recipe["sourceUrl"]
         end
-        return Recipe.create(title: title, ingredients: ingredients.join(":=:"), instructions: instructions, api_id: recipe["id"])
+        return Recipe.create(title: title, ingredients: ingredients.join(":=:"), instructions: instructions, api_id: recipe["id"], image: recipe["image"])
     end
 
     def self.get_data(url)
-        api_response = Faraday.get(url)
-        parsed_response = JSON.parse(api_response.body)
-        return parsed_response
+        if SpoonacularApiRequest.last.requests.to_i < MAX_REQUESTS
+            api_response = Faraday.get(url)
+            parsed_response = JSON.parse(api_response.body)
+            return parsed_response
+        else 
+            return {error: "Allocated API requests exceeded"}
+        end
     end
 
 end

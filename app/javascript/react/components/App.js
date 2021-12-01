@@ -26,7 +26,7 @@ export const App = (props) => {
           <RecipeIndexContainer recipes={recipes}
           setRecipes={setRecipes}/>
         </Route>
-        <Route exact path="/recipes/search">
+        <Route exact path="/recipes/search/:query">
           <RecipeSearchContainer recipes={recipes}
           setRecipes={setRecipes}/>
         </Route>
