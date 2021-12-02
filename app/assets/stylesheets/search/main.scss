@@ -46,3 +46,19 @@
     color: #E85A4F;
     padding: 1rem;
 }
+
+.search-arrows {
+    font-size: 3rem;
+}
+
+.results-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.sorting {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

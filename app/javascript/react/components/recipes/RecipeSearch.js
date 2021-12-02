@@ -12,20 +12,6 @@ const RecipeSearch = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        getRecipes()
-        // setSearchParams("")
-    }
-
-    const createParams = () => {
-        let offset = 0
-        let url = `api/v1/spoon_recipes?search=${searchParams}&offset=${offset}`
-        return url
-    }
-
-    const getRecipes = async () => {
-        const response = await fetch(createParams())
-        const responseJSON = await response.json()
-        setRecipes(responseJSON.results)
         setSearched(true)
     }
 
