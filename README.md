@@ -16,4 +16,3 @@ rake spoonAPI:reset && recipes:rng
 descriptions for these are in ```rake --tasks```
 
 running ```rails s``` and ```yarn run dev:client``` in another window will start running the site locally
-

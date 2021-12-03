@@ -61,4 +61,9 @@ class Spoonacular
         end
     end
 
+    def self.get_search_params
+        params = ["popularity", "random", "healthiness", "selenium"]
+        {params: params}
+    end
+
 end

@@ -11,6 +11,7 @@
     width: auto;
     border: solid dimgray 2px;
     border-radius: 1rem;
+    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
 }
 
 .ingredient-container {
@@ -18,12 +19,16 @@
     margin-bottom: 1rem;
     background: whitesmoke;
     border-radius: 1rem;
+    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
+    margin: 1rem;
 }
 
 .step-container {
     border: dimgray solid 1px;
     background: whitesmoke;
     border-radius: 1rem;
+    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
+    margin: 1rem;
 }
 
 .instructions-text {

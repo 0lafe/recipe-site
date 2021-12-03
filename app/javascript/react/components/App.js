@@ -27,13 +27,12 @@ export const App = (props) => {
           <RecipeIndexContainer recipes={recipes}
           setRecipes={setRecipes}/>
         </Route>
-        <Route exact path="/recipes/search/:query">
+        <Route exact path="/recipes/search/:query" render={props =>
           <RecipeSearchContainer recipes={recipes}
-          setRecipes={setRecipes}/>
-        </Route>
+          setRecipes={setRecipes}
+          routeProps={props}/>
+        }/>
         <Route exact path="/recipes/:id" render={props => <RecipeShowContainer user={currentUser} routeProps={props}/>} />
-          {/* <RecipeShowContainer user={currentUser} {...props}/> */}
-        {/* </Route> */}
         <Route exact path="/user">
           <UserShowContainer user={currentUser}/>
         </Route>
