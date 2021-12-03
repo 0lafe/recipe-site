@@ -19,7 +19,7 @@ const RecipeIndexTile = (props) => {
             <Link to={`/recipes/${id}`}>
                 <div className="recipe-tile">
                     <img className="recipe-tile-image" src={imageSrc}/>
-                    <span>{recipe.title}</span>
+                    <span className="recipe-tile-text">{recipe.title}</span>
                 </div>
             </Link>
         </div>

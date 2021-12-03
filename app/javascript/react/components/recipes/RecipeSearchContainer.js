@@ -7,9 +7,11 @@ const RecipeSearchContainer = (props) => {
     const { recipes, setRecipes, routeProps } = props
     const [offset, setOffset] = useState(0)
     const [maxPerPage, setMaxPerPage] = useState(10)
-    const [totalResults, setTotalResults] = useState(0)
+    // const [totalResults, setTotalResults] = useState(0)
+    const [totalResults, setTotalResults] = useState(95)
     const [searchType, setSearchType] = useState("popularity")
     const [searchTypeOptions, setSearchTypeOptions] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
 
     useEffect(() => {
         helperFetch('/api/v1/spoon_recipes/new').then(searchTypes => {
@@ -42,20 +44,72 @@ const RecipeSearchContainer = (props) => {
 
     const handleSearchChange = (value) => {
         setSearchType(value)
+        setOffset(0)
     }
 
     const arrow = (event) => {
-        setOffset(offset + parseInt(event.target.name) * maxPerPage)
+        event.preventDefault()
+        if (!(event.target.className === "disabled")) {
+            setOffset(offset + parseInt(event.target.name) * maxPerPage)
+            if (event.target.name === "1") {
+                setCurrentPage(currentPage + 1)
+            } else {
+                setCurrentPage(currentPage - 1)
+            }
+        }
+    }
+    const numberSelect = (event) => {
+        event.preventDefault()
+        setOffset((parseInt(event.target.name) - 1) * maxPerPage)
+        setCurrentPage(parseInt(event.target.name))
     }
 
-
-    let arrowTiles = []
+    let disableNext = "disabled"
+    let disablePrevious = "disabled"
     if (offset > 0) {
-        arrowTiles.push(<button name="-1" onClick={arrow} key={1}>⇐</button>)
+        disablePrevious = ""
     }
     if (offset < (totalResults - maxPerPage)) {
-        arrowTiles.push(<button name="1" onClick={arrow} key={2}>⇒</button>)
+        disableNext = ""
     }
+    const previousButton = <li className={`pagination-previous`} onClick={arrow}><a aria-label="Previous page" name="-1" className={`${disablePrevious}`}>Previous <span className="show-for-sr">page</span></a></li>
+    const nextButton = <li className={`pagination-next`} onClick={arrow}><a aria-label="Next page" name="1" className={`${disableNext}`}>Next <span className="show-for-sr">page</span></a></li>
+    const totalPages = Math.ceil(totalResults/maxPerPage)
+
+    const maxBack = 2
+    const searchOpions = 5
+    const previousNums = Math.min(currentPage - 1, maxBack)
+
+    const nums = [...Array(searchOpions)].map((_, num) => {
+        if (previousNums > 0) {
+            return (num - previousNums + currentPage)
+        } else {
+            return num + 1
+        }
+    })
+
+    const pages = nums.map(num => {
+        if (num <= totalPages) {
+            if (currentPage === num) {
+                return (
+                    <li key={num} className="current"><span className="show-for-sr">You're on page</span>{num}</li>
+                )
+            } else {
+                return (
+                    <li key={num}><a aria-label={`Page ${num}`} onClick={numberSelect} name={num}>{num}</a></li>
+                )
+            }
+        }
+    })
+
+    const pageBar = (
+        <ul className="pagination text-center" role="navigation" aria-label="Pagination" data-page="6" data-total="16">
+            {previousButton}
+            {pages}
+            {nextButton}
+        </ul>
+    )
+
 
     return (
         <div className="grid-container text-center">
@@ -63,9 +117,6 @@ const RecipeSearchContainer = (props) => {
                 <div className="cell small-12">
                     <div className="results-header">
                         <span className="search-text">Showing results {offset + 1} to {Math.min(offset + maxPerPage, totalResults)} out of {totalResults}</span>
-                        <div className="search-arrows">
-                            {arrowTiles}
-                        </div>
                         <div className="search-text sorting">
                             <span>Sorting by: </span>
                             <DropDown options={searchTypeOptions} selected={searchType} callback={handleSearchChange}/>
@@ -73,6 +124,7 @@ const RecipeSearchContainer = (props) => {
                     </div>
                 </div>
                 <div className="cell small-10">
+                    {pageBar}
                 </div>
                 {tiles}
             </div>

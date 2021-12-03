@@ -76,7 +76,7 @@ const RecipeShowContainer = (props) => {
 
         recipeShow = (
             <div className="recipe-show-tile grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
-                <div className="cell small-8 recipe-tile-header">
+                <div className="cell small-10 recipe-tile-header">
                     <span className="recipe-title">{recipe.title}</span>
                     {favoriteButton}
                 </div>
