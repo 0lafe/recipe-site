@@ -45,6 +45,7 @@ const RecipeSearchContainer = (props) => {
     const handleSearchChange = (value) => {
         setSearchType(value)
         setOffset(0)
+        setCurrentPage(1)
     }
 
     const arrow = (event) => {
