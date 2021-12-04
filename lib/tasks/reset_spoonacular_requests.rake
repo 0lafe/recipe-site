@@ -8,7 +8,6 @@ namespace :spoonAPI do |args|
 
     task :set => [ :environment ] do
         ARGV.each { |a| task a.to_sym do ; end }
-        
         SpoonacularApiRequest.create(requests: ARGV[1])
     end
 end

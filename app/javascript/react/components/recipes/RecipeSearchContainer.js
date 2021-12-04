@@ -2,16 +2,17 @@ import React, { useEffect, useState } from "react"
 import RecipeIndexTile from "./RecipeIndexTile"
 import helperFetch from "../helpers/Fetcher"
 import DropDown from "../helpers/DropDown"
+import { BeatLoader } from "react-spinners"
 
 const RecipeSearchContainer = (props) => {
     const { recipes, setRecipes, routeProps } = props
     const [offset, setOffset] = useState(0)
     const [maxPerPage, setMaxPerPage] = useState(10)
-    // const [totalResults, setTotalResults] = useState(0)
-    const [totalResults, setTotalResults] = useState(95)
+    const [totalResults, setTotalResults] = useState(0)
     const [searchType, setSearchType] = useState("popularity")
     const [searchTypeOptions, setSearchTypeOptions] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         helperFetch('/api/v1/spoon_recipes/new').then(searchTypes => {
@@ -21,6 +22,7 @@ const RecipeSearchContainer = (props) => {
 
     useEffect(() => {
         getRecipes(routeProps.match.params.query)
+        setLoading(false)
     }, [offset, searchType])
 
     const createParams = (searchParam) => {
@@ -111,6 +113,17 @@ const RecipeSearchContainer = (props) => {
         </ul>
     )
 
+    if (loading) {
+        return (
+            <div className="grid-container text-center">
+                <div className="grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
+                    <div className="loader">
+                        <BeatLoader />
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="grid-container text-center">

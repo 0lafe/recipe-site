@@ -13,6 +13,7 @@ const RecipeSearch = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         setSearched(true)
+        setRecipes([])
     }
 
     if (searched) {

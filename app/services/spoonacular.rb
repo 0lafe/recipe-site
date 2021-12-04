@@ -5,12 +5,12 @@ class Spoonacular
     QUANTITY = 100
     #scaling factor is here to avoid floats and only use ints
     SCALING_FACTOR = 100
-    MAX_REQUESTS = (ENV["REQUEST_LIMIT"].to_i * SCALING_FACTOR).to_i
+    MAX_REQUESTS = ENV["REQUEST_LIMIT"].to_i * SCALING_FACTOR
 
-    def self.get_by_name(ingredient_name, offset = 0, sort_method = "popularity")
+    def self.get_by_name(receivedData)
         type = "complexSearch"
-        params = "&query=#{ingredient_name}&offset=#{offset}"
-        sort = "&sort=#{sort_method}"
+        params = "&query=#{receivedData[:search]}&offset=#{receivedData[:offset]}"
+        sort = "&sort=#{receivedData[:sort]}"
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}#{sort}"
         SpoonacularApiRequest.increase_calls((1 + 0.01 * 10) * SCALING_FACTOR)
         return get_data(url)

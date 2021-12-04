@@ -3,6 +3,8 @@ RSpec.configure do |config|
   # before each test suite, dump the database completely
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
+    SpoonacularApiRequest.delete_all
+    SpoonacularApiRequest.create(requests: 0)
   end
 
   # “sets the default database cleaning strategy to be transactions”
