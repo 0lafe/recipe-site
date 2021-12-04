@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe Api::V1::UserFavoritesController, type: :controller do
+    
     let!(:recipe) { create(:recipe) }
     let!(:user) { create(:user) }
 
@@ -19,6 +20,7 @@ describe Api::V1::UserFavoritesController, type: :controller do
 
             expect(UserFavorite.last.user).to eq(user)
             expect(UserFavorite.last.recipe).to eq(recipe)
+
         end
 
         it "should delete a favorite when one exists" do
@@ -36,6 +38,7 @@ describe Api::V1::UserFavoritesController, type: :controller do
             expect(returned_json["success"]).to eq("succeeded")
 
             expect(UserFavorite.count).to eq(0)
+
         end
 
     end

@@ -1,11 +1,12 @@
 class SpoonacularTest < Spoonacular
 
     def self.get_data(url)
+        # puts ENV["TEST_FILE"]
         if SpoonacularApiRequest.last.requests.to_i < MAX_REQUESTS
-            file = File.read('testRecipes.json')
+            file = File.read(ENV["TEST_FILE"])
             parsed_response = JSON.parse(file)
             return parsed_response
-        else 
+        else
             return {error: "Allocated API requests exceeded"}
         end
     end

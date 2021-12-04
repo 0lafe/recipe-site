@@ -27,6 +27,7 @@ class Spoonacular
         type = "random"
         params = "&number=#{QUANTITY}"
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
+        # binding.pry
         store_recipe_data(get_data(url)["recipes"])
         SpoonacularApiRequest.increase_calls((1 + 0.01 * QUANTITY) * SCALING_FACTOR)
     end

@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-TEST_FILE = "testRecipes.json"
-
 describe "get search results" do
 
     it "returns a set of recipes when searched" do
 
-        test_data = JSON.parse(File.read(TEST_FILE))
+        ENV["TEST_FILE"] = "testRecipes.json"
+
+        test_data = JSON.parse(File.read(ENV["TEST_FILE"]))
 
         params = {
             search: "chicken",
