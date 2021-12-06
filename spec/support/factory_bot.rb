@@ -12,6 +12,7 @@ FactoryBot.define do
     title { 'Recipe' }
     ingredients { 'Ingredient' }
     instructions { 'instructions' }
+    sequence(:api_id) { |n| "#{n}" }
   end
 
 end
