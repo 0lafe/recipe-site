@@ -4,7 +4,7 @@
     margin: 1rem 0;
     border: solid 1px dimgray;
     border-radius: 2rem;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2)
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .recipe-tile {
@@ -15,13 +15,14 @@
     font-size: 2rem;
     padding: 0 1rem;
     border-radius: 1rem;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2)
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    background: whitesmoke;
 }
 
 .recipe-tile:hover {
     background: #D8C3A5;
     transform:scale(1.05);
-    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2)
+    box-shadow: 8px 8px 8px 0 rgba(0,0,0,.2);
 }
 
 .recipe-tile-text {
