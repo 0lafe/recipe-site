@@ -6,7 +6,7 @@ describe Api::V1::SpoonRecipesController, type: :controller do
 
         it "should return search results" do
             
-            ENV['TEST_FILE'] = 'testRecipes.json'
+            ENV['TEST_FILE'] = 'testSearch.json'
 
             test_data = JSON.parse(File.read(ENV["TEST_FILE"]))
 

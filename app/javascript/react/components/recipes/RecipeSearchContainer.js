@@ -12,7 +12,7 @@ const RecipeSearchContainer = (props) => {
     const [searchType, setSearchType] = useState("popularity")
     const [searchTypeOptions, setSearchTypeOptions] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [loading, setLoading] = useState(true)
+    const [tiles, setTiles] = useState(<div className="loader cell small-12"><BeatLoader /></div>)
 
     useEffect(() => {
         helperFetch('/api/v1/spoon_recipes/new').then(searchTypes => {
@@ -22,8 +22,24 @@ const RecipeSearchContainer = (props) => {
 
     useEffect(() => {
         getRecipes(routeProps.match.params.query)
-        setLoading(false)
     }, [offset, searchType])
+
+    useEffect(() => {
+        if (recipes.length > 0) {
+            setTiles(createTiles())
+        }
+    }, [recipes])
+
+    const createTiles = () => {
+        return (recipes.map(recipe => {
+            return (
+                <RecipeIndexTile key={recipe.id}
+                classname="recipe-tile cell small-8"
+                recipe={recipe}/>
+            )
+        })
+        )
+    }
 
     const createParams = (searchParam) => {
         return `/api/v1/spoon_recipes?search=${searchParam}&offset=${offset}&sort=${searchType}`
@@ -35,14 +51,6 @@ const RecipeSearchContainer = (props) => {
         setRecipes(responseJSON.results)
         setTotalResults(responseJSON.totalResults)
     }
-
-    const tiles = recipes.map(recipe => {
-        return (
-            <RecipeIndexTile key={recipe.id}
-            classname="recipe-tile cell small-8"
-            recipe={recipe}/>
-        )
-    })
 
     const handleSearchChange = (value) => {
         setSearchType(value)
@@ -113,18 +121,6 @@ const RecipeSearchContainer = (props) => {
         </ul>
     )
 
-    if (loading) {
-        return (
-            <div className="grid-container text-center">
-                <div className="grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
-                    <div className="loader">
-                        <BeatLoader />
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
     return (
         <div className="grid-container text-center">
             <div className="grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
@@ -132,7 +128,7 @@ const RecipeSearchContainer = (props) => {
                     <div className="results-header">
                         <span className="search-text">Showing results {offset + 1} to {Math.min(offset + maxPerPage, totalResults)} out of {totalResults}</span>
                         <div className="search-text sorting">
-                            <span>Sorting by: </span>
+                            <span className="sorting-text">Sorting by: </span>
                             <DropDown options={searchTypeOptions} selected={searchType} callback={handleSearchChange}/>
                         </div>
                     </div>

@@ -55,10 +55,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    // position: fixed;
 }
 
 .sorting {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    position: relative;
+    // text-align: right;
+}
+
+.sorting-text {
+    text-align: left;
 }

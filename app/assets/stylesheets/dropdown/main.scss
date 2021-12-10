@@ -4,13 +4,15 @@
     margin: 0 1rem;
     text-align: right;
     border: solid dimgray 2px;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     background: ghostwhite;
     cursor: pointer;
 }
 
-.dropdown-options-list:hover {
-    
+.dropdown-options-list {
+    position: absolute;
+    background: ghostwhite;
+    border: solid dimgray 2px;
 }
 
 .dropdown-option:hover {
@@ -19,6 +21,7 @@
 
 .dropdown-option {
     padding: 0 1rem;
+    // position: absolute;
 }
 
 .dropdown-selected {

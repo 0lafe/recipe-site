@@ -44,6 +44,24 @@ describe Api::V1::RecipesController, type: :controller do
 
         end
 
+        it "should return a recipe from spoonacular when recipe isn't stored" do
+
+            ENV["TEST_FILE"] = "testGetID.json"
+
+            get :show, params: {id: recipe.api_id + 1}
+
+            returned_json = JSON.parse(response.body)
+
+            test_recipe = JSON.parse(File.read(ENV["TEST_FILE"]))
+
+            expect(response.status).to eq 200
+            expect(response.content_type).to eq("application/json; charset=utf-8")
+
+            expect(returned_json["recipe"]["title"]).to eq(test_recipe["title"])
+            expect(returned_json["recipe"]["api_id"]).to eq(test_recipe["id"])
+            
+        end
+
     end
 
 end
