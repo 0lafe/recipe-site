@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
+import AutofillSearch from "../helpers/AutofillSearch"
 
 const RecipeSearch = (props) => {
     const { setRecipes } = props
@@ -31,6 +32,7 @@ const RecipeSearch = (props) => {
                 <input className="search-bar" type="text" value={searchParams} onChange={handleChange}/>
                 <input className="search-button" type="submit" value="🔍"/>
             </form>
+            <AutofillSearch searchParams={searchParams}/>
         </div>
     )
 }

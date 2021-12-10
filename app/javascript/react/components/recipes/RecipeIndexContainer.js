@@ -29,7 +29,7 @@ const RecipeIndexContainer = (props) => {
 
     return (
         <div className="grid-container text-center">
-            <div className="grid-x grid-padding-x grid-margin-x align-center grid-padding-y">
+            <div className="grid-x grid-margin-x grid-padding-x align-center grid-padding-y">
                 <RecipeSearch setRecipes={setRecipes}/>
                 <div className="random-recipes-text">
                     <span>Don't know what you want to make? Here are some random recipes you might be interested in!</span>

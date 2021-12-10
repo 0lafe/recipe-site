@@ -1,0 +1,26 @@
+.search-fill {
+    width: 51%;
+    background: whitesmoke;
+    position: absolute;
+    border-left: solid dimgray 2px;
+    border-right: solid dimgray 2px;
+    border-bottom: solid dimgray 2px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.2)
+}
+
+.search-spinner {
+    padding: 5rem;
+}
+
+.search-fill-results{
+    background: whitesmoke;
+    border-left: solid dimgray 2px;
+    border-right: solid dimgray 2px;
+    border-bottom: solid dimgray 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.2);
+    position: absolute;
+}

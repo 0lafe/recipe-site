@@ -9,9 +9,25 @@ class Spoonacular
 
     def self.get_by_name(receivedData)
         type = "complexSearch"
-        params = "&query=#{receivedData[:search]}&offset=#{receivedData[:offset]}"
-        sort = "&sort=#{receivedData[:sort]}"
-        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}#{sort}"
+        params = "&query=#{receivedData[:search]}"
+
+        offset = ""
+        if receivedData[:offset]
+            offset = "&offset=#{receivedData[:offset]}"
+        end
+
+        sort = ""
+        if (receivedData[:sort])
+            sort = "&sort=#{receivedData[:sort]}"
+        end
+
+
+        number = ""
+        if (receivedData[:number])
+            number = "&number=#{receivedData[:number]}"
+        end
+
+        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}#{offset}#{sort}#{number}"
         SpoonacularApiRequest.increase_calls((1 + 0.01 * 10) * SCALING_FACTOR)
         return get_data(url)
     end
