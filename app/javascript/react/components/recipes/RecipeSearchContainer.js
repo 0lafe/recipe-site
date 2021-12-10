@@ -22,6 +22,7 @@ const RecipeSearchContainer = (props) => {
 
     useEffect(() => {
         getRecipes(routeProps.match.params.query)
+        setTiles(<div className="loader cell small-12"><BeatLoader /></div>)
     }, [offset, searchType])
 
     useEffect(() => {
