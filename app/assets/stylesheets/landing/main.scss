@@ -2,12 +2,29 @@
     background: #D8C3A5;
     color: #E98074;
     font-size: larger;
+    box-shadow: 4px 8px 8px 0 rgba(0,0,0,.2);
+    transform: scale(1.05);
 }
 
 .clickable-button {
     background: #D8C3A5;
     color: #E85A4F;
     font-size: larger;
+    border: solid 2px dimgray;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.clickable-button:focus {
+    background: #D8C3A5;
+    color: #E85A4F;
+    font-size: larger;
+}
+
+.landing-title {
+    margin-top: 3rem;
 }
 
 body {

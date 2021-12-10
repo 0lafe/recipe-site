@@ -1,0 +1,33 @@
+.dropdown {
+    z-index: 10;
+    font-size: 2rem;
+    margin: 0 1rem;
+    text-align: right;
+    border: solid dimgray 2px;
+    border-radius: 0.5rem;
+    background: ghostwhite;
+    cursor: pointer;
+}
+
+.dropdown-options-list {
+    position: absolute;
+    background: ghostwhite;
+    border: solid dimgray 2px;
+}
+
+.dropdown-option:hover {
+    background-color: #D8C3A5;
+}
+
+.dropdown-option {
+    padding: 0 1rem;
+    // position: absolute;
+}
+
+.dropdown-selected {
+    padding: 0 1rem;
+}
+
+.dropdown-selected:hover {
+    // cursor: pointer;
+}

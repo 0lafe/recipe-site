@@ -5,6 +5,7 @@ import LandingPageComponent from './layout/LandingPageComponent'
 import RecipeIndexContainer from './recipes/RecipeIndexContainer'
 import RecipeSearchContainer from './recipes/RecipeSearchContainer'
 import RecipeShowContainer from './recipes/RecipeShowContainer'
+import UserShowContainer from './users/UserShowContainer'
 
 export const App = (props) => {
   const [currentUser, setCurrentUser] = useState(null)
@@ -26,11 +27,15 @@ export const App = (props) => {
           <RecipeIndexContainer recipes={recipes}
           setRecipes={setRecipes}/>
         </Route>
-        <Route exact path="/recipes/search">
+        <Route exact path="/recipes/search/:query" render={props =>
           <RecipeSearchContainer recipes={recipes}
-          setRecipes={setRecipes}/>
+          setRecipes={setRecipes}
+          routeProps={props}/>
+        }/>
+        <Route exact path="/recipes/:id" render={props => <RecipeShowContainer user={currentUser} routeProps={props}/>} />
+        <Route exact path="/user">
+          <UserShowContainer user={currentUser}/>
         </Route>
-        <Route exact path="/recipes/:id" component={RecipeShowContainer}/>
       </Switch>
     </BrowserRouter>
   )

@@ -1,17 +1,28 @@
-# How to Use Me
+#Welcome to recipedia, a website for recipes
 
-Assuming you are starting an app that you wish to call `rescue-mission` 
+#Tips for running locally
 
-In your terminal:
+Required Ruby version: ```3.0.2```
 
+Initially run ```bundle install && yarn install``` to prepare all dependencies
+
+Run these commands to prepare the database
 ```
-git clone https://github.com/LaunchAcademy/rails-6-boilerplate
-cd rails-6-boilerplate 
-bundle
-yarn install
+rails db:create && rails db:migrate && rails db:test:prepare
 ```
 
-If you prefer, **you can rename your project with the `mv` command.**
+These commands will seed the database, and setup the API request db table
+```
+rake spoonAPI:reset && rake recipes:rng
+```
+descriptions for these are in ```rake --tasks```
 
-Starting from the directory above your app (likely challenges):
-mv <source_directory> <target_directory>
+running ```rails s``` and ```yarn run dev:client``` in another window will start running the site locally
+
+TODO
+
+Add a forum section for users to create posts and comments
+
+Possibly implement data anylitics for API requests
+
+Allow users to comment on Recipes

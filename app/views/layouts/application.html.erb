@@ -8,28 +8,29 @@
 </head>
 <body>
 
-  <div class="Navbar">
-    <div class="top-bar-left">
-      <span class="nav-links"> <%= link_to  'Recipes', "/recipes" %></span>
+  <nav class="top-bar topbar-responsive">
+    <div class="top-bar-title">
+      <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+      </span>
+      <a class="topbar-responsive-logo" href="/"><strong>Recipedia</strong></a>
     </div>
-    <div class="top-bar-middle">
-      <span class="nav-links"><%= link_to  'Home', "/" %></span>
+    <div id="topbar-responsive" class="topbar-responsive-links">
+      <div class="top-bar-right">
+        <ul class="menu simple vertical medium-horizontal">
+          <li><a href="/">Home</a></li>
+          <li><a href="/recipes">Recipes</a></li>
+          <% if signed_in? %>
+            <li><%= link_to "Profile", "/user" %></li>
+            <li><button type="button" class="button hollow topbar-responsive-button"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></button></li>
+          <% else %>
+            <li><button type="button" class="button hollow topbar-responsive-button"><%= link_to "Sign In", new_user_session_path %></button></li>
+            <li><button type="button" class="button hollow topbar-responsive-button"><%= link_to "Sign Up", new_user_registration_path %></button></li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-    <div class="top-bar-right">
-      <% if signed_in? %>
-        <span class="nav-text nav-links"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></span>
-      <% else %>
-        <span class="nav-text nav-links"><%= link_to "Sign In", new_user_session_path %></span>
-        <span class="nav-text nav-links"><%= link_to "Sign Up", new_user_registration_path %></span>
-      <% end %>
-    </div>
-  </div>
-
-  <%- flash.each do |key, value| -%>
-    <div class="flash flash-<%= key %>">
-      <%= value %>
-    </div>
-  <%- end -%>
+  </nav>
 
   <%= yield %>
 

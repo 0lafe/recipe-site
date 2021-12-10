@@ -1,0 +1,682 @@
+{
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": true,
+    "veryHealthy": true,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "weightWatcherSmartPoints": 9,
+    "gaps": "GAPS_5",
+    "lowFodmap": true,
+    "aggregateLikes": 0,
+    "spoonacularScore": 89.0,
+    "healthScore": 99.0,
+    "pricePerServing": 508.55,
+    "extendedIngredients": [
+      {
+        "id": 15001,
+        "aisle": "Seafood",
+        "image": "fresh-anchovies.jpg",
+        "consistency": "solid",
+        "name": "anchovy filets",
+        "nameClean": "boquerones",
+        "original": "8 high quality anchovy filets, (we use anchovies from Sardegna packed in salt)",
+        "originalString": "8 high quality anchovy filets, (we use anchovies from Sardegna packed in salt)",
+        "originalName": "high quality anchovy filets, (we use anchovies from Sardegna packed in salt)",
+        "amount": 8.0,
+        "unit": "",
+        "meta": [
+          "packed in salt)"
+        ],
+        "metaInformation": [
+          "packed in salt)"
+        ],
+        "measures": {
+          "us": {
+            "amount": 8.0,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 8.0,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      },
+      {
+        "id": 1034053,
+        "aisle": "Oil, Vinegar, Salad Dressing",
+        "image": "olive-oil.jpg",
+        "consistency": "liquid",
+        "name": "extra virgin olive oil",
+        "nameClean": "extra virgin olive oil",
+        "original": "good quality extra virgin olive oil",
+        "originalString": "good quality extra virgin olive oil",
+        "originalName": "good quality extra virgin olive oil",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "metaInformation": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 98849,
+        "aisle": "Canned and Jarred",
+        "image": "tomatoes-canned.png",
+        "consistency": "solid",
+        "name": "fire-roasted tomatoes",
+        "nameClean": "fire roasted tomatoes",
+        "original": "Roasted Tomatoes with Anchovies",
+        "originalString": "Roasted Tomatoes with Anchovies",
+        "originalName": "Roasted Tomatoes with Anchovies",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          "with anchovies"
+        ],
+        "metaInformation": [
+          "with anchovies"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 1002044,
+        "aisle": "Produce",
+        "image": "lemon-basil.jpg",
+        "consistency": "solid",
+        "name": "herbs",
+        "nameClean": "lemon basil",
+        "original": "small handful of any fresh herbs you like, chopped - we use oregano but you can also use basil, thyme, etc.",
+        "originalString": "small handful of any fresh herbs you like, chopped - we use oregano but you can also use basil, thyme, etc.",
+        "originalName": "any fresh herbs you like, chopped - we use oregano but you can also use basil, thyme, etc",
+        "amount": 1.0,
+        "unit": "small handful",
+        "meta": [
+          "fresh",
+          "chopped",
+          "canned"
+        ],
+        "metaInformation": [
+          "fresh",
+          "chopped",
+          "canned"
+        ],
+        "measures": {
+          "us": {
+            "amount": 1.0,
+            "unitShort": "small handful",
+            "unitLong": "small handful"
+          },
+          "metric": {
+            "amount": 1.0,
+            "unitShort": "small handful",
+            "unitLong": "small handful"
+          }
+        }
+      },
+      {
+        "id": 1102047,
+        "aisle": "Spices and Seasonings",
+        "image": "salt-and-pepper.jpg",
+        "consistency": "solid",
+        "name": "Salt & Pepper",
+        "nameClean": "salt and pepper",
+        "original": "salt & pepper",
+        "originalString": "salt & pepper",
+        "originalName": "salt & pepper",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "metaInformation": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 11641,
+        "aisle": "Produce",
+        "image": "yellow-squash.jpg",
+        "consistency": "solid",
+        "name": "summer squash",
+        "nameClean": "summer squash",
+        "original": "On a hot summer's day, we keep the kitchen oven off & make these in our outdoor wood burning oven!",
+        "originalString": "On a hot summer's day, we keep the kitchen oven off & make these in our outdoor wood burning oven!",
+        "originalName": "On a hot summer's day, we keep the kitchen oven off & make these in our outdoor wood burning oven",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          "hot"
+        ],
+        "metaInformation": [
+          "hot"
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 11955,
+        "aisle": "Canned and Jarred;Produce",
+        "image": "sundried-tomatoes.jpg",
+        "consistency": "solid",
+        "name": "sun-dried tomatoes",
+        "nameClean": "sun dried tomatoes",
+        "original": "Once the tomatoes shrivel up a bit & start to look sun-dried, they are ready. They should still hold their shape & not become mush.",
+        "originalString": "Once the tomatoes shrivel up a bit & start to look sun-dried, they are ready. They should still hold their shape & not become mush.",
+        "originalName": "Once the tomatoes shrivel up a bit & start to look sun-dried, they are ready. They should still hold their shape & not become mush",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "metaInformation": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": 11529,
+        "aisle": "Produce",
+        "image": "tomato.png",
+        "consistency": "solid",
+        "name": "tomatoes",
+        "nameClean": "tomato",
+        "original": "4 round tomatoes (we grow & use grappolo for this dish)",
+        "originalString": "4 round tomatoes (we grow & use grappolo for this dish)",
+        "originalName": "round tomatoes (we grow & use grappolo for this dish)",
+        "amount": 4.0,
+        "unit": "",
+        "meta": [
+          "for this dish)"
+        ],
+        "metaInformation": [
+          "for this dish)"
+        ],
+        "measures": {
+          "us": {
+            "amount": 4.0,
+            "unitShort": "",
+            "unitLong": ""
+          },
+          "metric": {
+            "amount": 4.0,
+            "unitShort": "",
+            "unitLong": ""
+          }
+        }
+      },
+      {
+        "id": 23584,
+        "aisle": "Meat",
+        "image": "top-sirloin-steak.jpg",
+        "consistency": "solid",
+        "name": "Top Sirloin",
+        "nameClean": "top sirloin steak",
+        "original": "Cut the top 3rd off the tomatoes & discard top.",
+        "originalString": "Cut the top 3rd off the tomatoes & discard top.",
+        "originalName": "Cut the top 3rd off the tomatoes & discard top",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "metaInformation": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": null,
+        "aisle": "?",
+        "image": null,
+        "consistency": null,
+        "name": "pomodori al forno con le acciughe",
+        "nameClean": null,
+        "original": "Pomodori al forno con le acciughe",
+        "originalString": "Pomodori al forno con le acciughe",
+        "originalName": "Pomodori al forno con le acciughe",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          
+        ],
+        "metaInformation": [
+          
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      },
+      {
+        "id": null,
+        "aisle": "?",
+        "image": null,
+        "consistency": null,
+        "name": "remove from oven",
+        "nameClean": null,
+        "original": "Remove from oven, top each tomato with a whole anchovy filet. Serve warm or room temperature with olive oil from the baking pan drizzled over the top.",
+        "originalString": "Remove from oven, top each tomato with a whole anchovy filet. Serve warm or room temperature with olive oil from the baking pan drizzled over the top.",
+        "originalName": "Remove from oven, top each tomato with a whole anchovy filet. Serve warm or room temperature with olive oil from the baking pan drizzled over the top",
+        "amount": 2.0,
+        "unit": "servings",
+        "meta": [
+          "whole",
+          "with a  anchovy filet. serve warm or room temperature with olive oil from the baking pan drizzled over the top."
+        ],
+        "metaInformation": [
+          "whole",
+          "with a  anchovy filet. serve warm or room temperature with olive oil from the baking pan drizzled over the top."
+        ],
+        "measures": {
+          "us": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          },
+          "metric": {
+            "amount": 2.0,
+            "unitShort": "servings",
+            "unitLong": "servings"
+          }
+        }
+      }
+    ],
+    "id": 17,
+    "title": "Savory Slow Roasted Tomatoes with Filet of Anchovy",
+    "readyInMinutes": 45,
+    "servings": 2,
+    "sourceUrl": "http://latavolamarche.blogspot.it/2012/07/savory-slow-roasted-tomatoes-with-filet.html",
+    "image": "https://spoonacular.com/recipeImages/17-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "Savory Slow Roasted Tomatoes with Filet of Anchovy might be just the main course you are searching for. One portion of this dish contains around <b>56g of protein</b>, <b>23g of fat</b>, and a total of <b>479 calories</b>. For <b>$5.06 per serving</b>, this recipe <b>covers 36%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. 1 person were glad they tried this recipe. From preparation to the plate, this recipe takes about <b>45 minutes</b>. If you have anchovy filets, any herbs you like, pomodori al forno con le acciughe, and a few other ingredients on hand, you can make it. It is a good option if you're following a <b>caveman, gluten free, dairy free, and primal</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 90%</b>. This score is tremendous. Try <a href=\"https://spoonacular.com/recipes/savory-slow-roasted-tomatoes-with-filet-of-anchovy-631757\">Savory Slow Roasted Tomatoes with Filet of Anchovy</a>, <a href=\"https://spoonacular.com/recipes/slow-roasted-filet-of-beef-and-basil-parmesan-mayonnaise-362274\">Slow-Roasted Filet of Beef and Basil Parmesan Mayonnaise</a>, and <a href=\"https://spoonacular.com/recipes/slow-roasted-pork-shoulder-with-savory-apple-gravy-247332\">Slow Roasted Pork Shoulder with Savory Apple Gravy</a> for similar recipes.",
+    "cuisines": [
+      
+    ],
+    "dishTypes": [
+      "lunch",
+      "main course",
+      "main dish",
+      "dinner"
+    ],
+    "diets": [
+      "gluten free",
+      "dairy free",
+      "paleolithic",
+      "primal",
+      "fodmap friendly"
+    ],
+    "occasions": [
+      
+    ],
+    "winePairing": {
+      
+    },
+    "instructions": "It's tomato season, so keep it simple while cooking. No need to make heavy sauces with all those gorgeous tomatoes that are bursting with flavor - try a simple 5 ingredient recipe with slow roasted tomatoes, herbs, loads of olive oil and topped with a filet of anchovy! This recipe is straight from the seaside of Le Marche, where we first devoured this delicious antipasto in Numana.On a hot summer's day, we keep the kitchen oven off & make these in our outdoor wood burning oven!Roasted Tomatoes with AnchoviesPomodori al forno con le acciugheserves 44 round tomatoes (we grow & use grappolo for this dish)small handful of any fresh herbs you like, chopped - we use oregano but you can also use basil, thyme, etc.salt & peppergood quality extra virgin olive oil8 high quality anchovy filets, (we use anchovies from Sardegna packed in salt)Preheat oven to 150 C or 280 FCut the top 3rd off the tomatoes & discard top.Place tomatoes on a baking tray, lined with parchment paper. Sprinkle generously with salt, pepper & herbs. Drizzle with a generous amount of olive oil. Place in the oven for 4-6 hours depending on the size of your tomatoes. Every once in a while as you pass the kitchen, baste the tomatoes in the juices & olive oil in the pan.Once the tomatoes shrivel up a bit & start to look sun-dried, they are ready. They should still hold their shape & not become mush.Remove from oven, top each tomato with a whole anchovy filet. Serve warm or room temperature with olive oil from the baking pan drizzled over the top.",
+    "analyzedInstructions": [
+      {
+        "name": "",
+        "steps": [
+          {
+            "number": 1,
+            "step": "It's tomato season, so keep it simple while cooking. No need to make heavy sauces with all those gorgeous tomatoes that are bursting with flavor - try a simple 5 ingredient recipe with slow roasted tomatoes, herbs, loads of olive oil and topped with a filet of anchovy! This recipe is straight from the seaside of Le Marche, where we first devoured this delicious antipasto in Numana.On a hot summer's day, we keep the kitchen oven off & make these in our outdoor wood burning oven!Roasted Tomatoes with Anchovies",
+            "ingredients": [
+              {
+                "id": 15001,
+                "name": "anchovies",
+                "localizedName": "anchovies",
+                "image": "anchovies.jpg"
+              },
+              {
+                "id": 4053,
+                "name": "olive oil",
+                "localizedName": "olive oil",
+                "image": "olive-oil.jpg"
+              },
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              },
+              {
+                "id": 1002044,
+                "name": "herbs",
+                "localizedName": "herbs",
+                "image": "mixed-fresh-herbs.jpg"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404784,
+                "name": "oven",
+                "localizedName": "oven",
+                "image": "oven.jpg"
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "step": "Pomodori al forno con le acciugheserves 44 round tomatoes (we grow & use grappolo for this dish)small handful of any fresh herbs you like, chopped - we use oregano but you can also use basil, thyme, etc.salt & peppergood quality extra virgin olive oil8 high quality anchovy filets, (we use anchovies from Sardegna packed in salt)Preheat oven to 150 C or 280 F",
+            "ingredients": [
+              {
+                "id": 15001,
+                "name": "anchovy fillets",
+                "localizedName": "anchovy fillets",
+                "image": "anchovies.jpg"
+              },
+              {
+                "id": 10111297,
+                "name": "fresh herbs",
+                "localizedName": "fresh herbs",
+                "image": "mixed-fresh-herbs.jpg"
+              },
+              {
+                "id": 15001,
+                "name": "anchovies",
+                "localizedName": "anchovies",
+                "image": "anchovies.jpg"
+              },
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              },
+              {
+                "id": 2027,
+                "name": "oregano",
+                "localizedName": "oregano",
+                "image": "oregano.jpg"
+              },
+              {
+                "id": 2044,
+                "name": "basil",
+                "localizedName": "basil",
+                "image": "basil.jpg"
+              },
+              {
+                "id": 9195,
+                "name": "olives",
+                "localizedName": "olives",
+                "image": "olives-mixed.jpg"
+              },
+              {
+                "id": 2049,
+                "name": "thyme",
+                "localizedName": "thyme",
+                "image": "thyme.jpg"
+              },
+              {
+                "id": 2047,
+                "name": "salt",
+                "localizedName": "salt",
+                "image": "salt.jpg"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404784,
+                "name": "oven",
+                "localizedName": "oven",
+                "image": "oven.jpg",
+                "temperature": {
+                  "number": 150.0,
+                  "unit": "Celsius"
+                }
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "step": "Cut the top 3rd off the tomatoes & discard top.",
+            "ingredients": [
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 4,
+            "step": "Place tomatoes on a baking tray, lined with parchment paper.",
+            "ingredients": [
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404770,
+                "name": "baking paper",
+                "localizedName": "baking paper",
+                "image": "baking-paper.jpg"
+              },
+              {
+                "id": 404646,
+                "name": "baking pan",
+                "localizedName": "baking pan",
+                "image": "roasting-pan.jpg"
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "step": "Sprinkle generously with salt, pepper & herbs.",
+            "ingredients": [
+              {
+                "id": 1002030,
+                "name": "pepper",
+                "localizedName": "pepper",
+                "image": "pepper.jpg"
+              },
+              {
+                "id": 1002044,
+                "name": "herbs",
+                "localizedName": "herbs",
+                "image": "mixed-fresh-herbs.jpg"
+              },
+              {
+                "id": 2047,
+                "name": "salt",
+                "localizedName": "salt",
+                "image": "salt.jpg"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 6,
+            "step": "Drizzle with a generous amount of olive oil.",
+            "ingredients": [
+              {
+                "id": 4053,
+                "name": "olive oil",
+                "localizedName": "olive oil",
+                "image": "olive-oil.jpg"
+              }
+            ],
+            "equipment": [
+              
+            ]
+          },
+          {
+            "number": 7,
+            "step": "Place in the oven for 4-6 hours depending on the size of your tomatoes. Every once in a while as you pass the kitchen, baste the tomatoes in the juices & olive oil in the pan.Once the tomatoes shrivel up a bit & start to look sun-dried, they are ready. They should still hold their shape & not become mush.",
+            "ingredients": [
+              {
+                "id": 4053,
+                "name": "olive oil",
+                "localizedName": "olive oil",
+                "image": "olive-oil.jpg"
+              },
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404784,
+                "name": "oven",
+                "localizedName": "oven",
+                "image": "oven.jpg"
+              },
+              {
+                "id": 404645,
+                "name": "frying pan",
+                "localizedName": "frying pan",
+                "image": "pan.png"
+              }
+            ],
+            "length": {
+              "number": 360,
+              "unit": "minutes"
+            }
+          },
+          {
+            "number": 8,
+            "step": "Remove from oven, top each tomato with a whole anchovy filet.",
+            "ingredients": [
+              {
+                "id": 15001,
+                "name": "anchovies",
+                "localizedName": "anchovies",
+                "image": "anchovies.jpg"
+              },
+              {
+                "id": 11529,
+                "name": "tomato",
+                "localizedName": "tomato",
+                "image": "tomato.png"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404784,
+                "name": "oven",
+                "localizedName": "oven",
+                "image": "oven.jpg"
+              }
+            ]
+          },
+          {
+            "number": 9,
+            "step": "Serve warm or room temperature with olive oil from the baking pan drizzled over the top.",
+            "ingredients": [
+              {
+                "id": 4053,
+                "name": "olive oil",
+                "localizedName": "olive oil",
+                "image": "olive-oil.jpg"
+              }
+            ],
+            "equipment": [
+              {
+                "id": 404646,
+                "name": "baking pan",
+                "localizedName": "baking pan",
+                "image": "roasting-pan.jpg"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "sourceName": null,
+    "creditsText": null,
+    "originalId": null
+  }
