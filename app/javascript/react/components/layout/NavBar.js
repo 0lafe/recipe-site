@@ -1,16 +1,14 @@
-import React from "react"
-import { Link, Redirect, useHistory } from "react-router-dom"
+import React, { useState } from "react"
+import { Link, useHistory } from "react-router-dom"
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -25,9 +23,9 @@ const Search = styled('div')(({ theme }) => ({
       marginLeft: theme.spacing(1),
       width: 'auto',
     },
-  }));
+}));
   
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
+const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
@@ -35,45 +33,74 @@ const Search = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-  }));
-  
-  const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: '#E85A4F',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'white',
     '& .MuiInputBase-input': {
-      padding: theme.spacing(1, 1, 1, 0),
-      // vertical padding + font size from searchIcon
-      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      width: '100%',
-      [theme.breakpoints.up('sm')]: {
+        backgroundColor: 'gray',
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
         width: '12ch',
         '&:focus': {
-          width: '20ch',
+            width: '20ch',
         },
-      },
+        },
     },
-  }));
+}));
   
 export default function Navbar({currentUser}) {
 
+    const [anchorElUser, setAnchorElUser] = useState(null);
+
     const history = useHistory()
-    const navigateHome = () => {
-        history.push("/")
+
+    const settings = currentUser ? ['Profile', 'Logout'] : ['Login', 'Sign up']
+    const user = currentUser ? "Account" : "Login"
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
+
+    const urlMappings = {
+        "Profile": "/user",
+        "Logout": "/",
+        "Login": "/users/sign_in",
+        "Sign up": "/users/sign_up"
     }
+
+    const logout = async () => {
+        const response = await fetch('/users/sign_out', {
+            method:"DELETE",
+            headers:{
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            credentials:"same-origin"
+        })
+        window.location.reload();
+    }
+
+    const redirectFunc = (url) => {
+        history.push(url)
+    }
+
+    const handleCloseUserMenu = (e) => {
+        setAnchorElUser(null);
+        if (e.currentTarget.id === "Logout") {
+            logout()
+        }
+    };
 
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static" style={{backgroundColor: 'dimgray'}}>
                 <Toolbar>
-                <IconButton
-                    size="large"
-                    edge="start"
-                    color="inherit"
-                    aria-label="open drawer"
-                    sx={{ mr: 2 }}
-                >
-                    <MenuIcon />
-                </IconButton>
+
                 <Typography
                     variant="h6"
                     noWrap
@@ -81,21 +108,52 @@ export default function Navbar({currentUser}) {
                     sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
                 >
                     <Button
-                        onClick={navigateHome}
+                        onClick={() => redirectFunc('/')}
                         sx={{ my: 2, color: 'white', display: 'block' }}
                     >
                         Home
                     </Button>
                 </Typography>
+
                 <Search>
-                    <SearchIconWrapper>
-                    <SearchIcon />
-                    </SearchIconWrapper>
                     <StyledInputBase
                     placeholder="Search…"
                     inputProps={{ 'aria-label': 'search' }}
                     />
                 </Search>
+
+                <Box sx={{ flexGrow: 0 }}>
+                    <Button 
+                        onClick={handleOpenUserMenu} 
+                        sx={{ my: 2, color: 'white', display: 'block' }}
+                    >
+                        {user}
+                    </Button>
+                    <Menu
+                    sx={{ mt: '45px' }}
+                    id="menu-appbar"
+                    anchorEl={anchorElUser}
+                    anchorOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                    keepMounted
+                    transformOrigin={{
+                        vertical: 'top',
+                        horizontal: 'right',
+                    }}
+                    open={Boolean(anchorElUser)}
+                    onClose={handleCloseUserMenu}
+                    >
+                    {settings.map((setting) => (
+                        <MenuItem key={setting} onClick={handleCloseUserMenu} id={setting}>
+                            <Link to={urlMappings[setting]}>
+                                <Typography textAlign="center">{setting}</Typography>
+                            </Link>
+                        </MenuItem>
+                    ))}
+                    </Menu>
+                </Box>
                 </Toolbar>
             </AppBar>
         </Box>
