@@ -47,7 +47,6 @@ const AutofillSearch = (props) => {
         }))
     }
 
-    console.log(tiles)
 
     return (
             <div className="cell small-4 search-fill-results">

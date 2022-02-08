@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 import helperFetch from './helpers/Fetcher'
 import LandingPageComponent from './layout/LandingPageComponent'
+import NavBar from './layout/NavBar'
 import RecipeIndexContainer from './recipes/RecipeIndexContainer'
 import RecipeSearchContainer from './recipes/RecipeSearchContainer'
 import RecipeShowContainer from './recipes/RecipeShowContainer'
@@ -21,6 +22,7 @@ export const App = (props) => {
 
   return (
     <BrowserRouter>
+      <NavBar currentUser={currentUser}/>
       <Switch>
         <Route exact path="/" component={LandingPageComponent}/>
         <Route exact path="/recipes">
