@@ -25,6 +25,9 @@
 .env
 /public/packs
 /public/packs-test
-/node_modules
 yarn-debug.log*
 .yarn-integrity
+
+#installed dependencies 
+yarn.lock
+Gemfile.lock

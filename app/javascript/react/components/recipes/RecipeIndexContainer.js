@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react"
 import helperFetch from "../helpers/Fetcher"
+import CustomButton from "../templates/CustomButton"
 import RecipeIndexTile from "./RecipeIndexTile"
 import RecipeSearch from "./RecipeSearch"
 
-const RecipeIndexContainer = (props) => {
-    const { recipes, setRecipes } = props
+const RecipeIndexContainer = ({ recipes, setRecipes }) => {
 
     useEffect(() => {
         helperFetch('api/v1/recipes').then(recipes => {
@@ -39,7 +39,9 @@ const RecipeIndexContainer = (props) => {
                     <span>Nothing catch your eye? Try refreshing the list </span>
                 </div>
                 <div className="cell">
-                    <button className="clickable-button button" onClick={refresh}>Refresh</button>
+                    <CustomButton 
+                    text='Refresh'
+                    callback={refresh}/>
                 </div>
             </div>
         </div>

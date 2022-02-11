@@ -18,21 +18,12 @@ const Search = styled('div')(({ theme }) => ({
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
+    marginRight: 5,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto',
     },
-}));
-  
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
@@ -109,7 +100,7 @@ export default function Navbar({currentUser}) {
                 >
                     <Button
                         onClick={() => redirectFunc('/')}
-                        sx={{ my: 2, color: 'white', display: 'block' }}
+                        sx={{ color: 'white', display: 'block' }}
                     >
                         Home
                     </Button>
@@ -125,7 +116,7 @@ export default function Navbar({currentUser}) {
                 <Box sx={{ flexGrow: 0 }}>
                     <Button 
                         onClick={handleOpenUserMenu} 
-                        sx={{ my: 2, color: 'white', display: 'block' }}
+                        sx={{ color: 'white', display: 'block' }}
                     >
                         {user}
                     </Button>
