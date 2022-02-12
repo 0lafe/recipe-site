@@ -5,7 +5,6 @@ import React from "react"
 const StyledButton = styled(Button)(({theme}) => ({
     backgroundColor: '#D8C3A5',
     color: '#E85A4F',
-    fontsize: 10,
     border: 'solid 2px dimgray',
     '&:hover': {
         background: '#D8C3A5',

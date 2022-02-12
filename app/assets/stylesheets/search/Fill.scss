@@ -1,5 +1,5 @@
 .search-fill {
-    width: 51%;
+    width: 100%;
     background: whitesmoke;
     position: absolute;
     border-left: solid dimgray 2px;
@@ -13,6 +13,7 @@
 }
 
 .search-fill-results{
+    width: 51%;
     background: whitesmoke;
     border-left: solid dimgray 2px;
     border-right: solid dimgray 2px;

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { BeatLoader } from "react-spinners"
 
-const AutofillSearch = (props) => {
-    const { searchParams } = props
+const AutofillSearch = ({ searchParams }) => {
     const [maxResults, setMaxResults] = useState(4)
-    const [tiles, setTiles] = useState(
-    <div className="search-fill search-spinner">
-        <BeatLoader />
-    </div>)
     const [delay, setDelay] = useState(null)
+    const [tiles, setTiles] = useState(
+        <div className="search-fill search-spinner">
+            <BeatLoader />
+        </div>
+    )
 
     const toggle = (searchParams.length > 0)
 
@@ -36,10 +36,6 @@ const AutofillSearch = (props) => {
         const response = await fetch(createParams())
         const responseJson = await response.json()
 
-        console.log(responseJson)
-
-        debugger
-
         setTiles(responseJson.results.map((recipe) => {
             return (
                 <Link to={`/recipes/${recipe.id}`} key={recipe.id}>{recipe.title}</Link>
@@ -47,9 +43,8 @@ const AutofillSearch = (props) => {
         }))
     }
 
-
     return (
-            <div className="cell small-4 search-fill-results">
+            <div className="search-fill-results">
                 { toggle && tiles }
             </div>
     )

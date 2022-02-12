@@ -2,8 +2,7 @@ import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
 import AutofillSearch from "../helpers/AutofillSearch"
 
-const RecipeSearch = (props) => {
-    const { setRecipes } = props
+const RecipeSearch = ({ setRecipes }) => {
     const [searchParams, setSearchParams] = useState("")
     const [searched, setSearched] = useState(false)
 
@@ -13,8 +12,10 @@ const RecipeSearch = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setSearched(true)
-        setRecipes([])
+        if (searchParams.length > 0) {
+            setSearched(true)
+            setRecipes([])
+        }
     }
 
     if (searched) {
