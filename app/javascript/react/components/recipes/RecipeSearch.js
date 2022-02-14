@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import { Redirect } from "react-router-dom"
+import AutofillSearch from "../helpers/AutofillSearch"
 
-const RecipeSearch = (props) => {
-    const { setRecipes } = props
+const RecipeSearch = ({ setRecipes }) => {
     const [searchParams, setSearchParams] = useState("")
     const [searched, setSearched] = useState(false)
+    const [focused, setFocused] = useState(false)
 
     const handleChange = (event) => {
         setSearchParams(event.currentTarget.value)
@@ -12,8 +13,14 @@ const RecipeSearch = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setSearched(true)
-        setRecipes([])
+        if (searchParams.length > 0) {
+            setSearched(true)
+            setRecipes([])
+        }
+    }
+
+    const disableFocus = () => {
+        setTimeout(() => {setFocused(false)}, 250)
     }
 
     if (searched) {
@@ -28,9 +35,10 @@ const RecipeSearch = (props) => {
                 <span>Search for a recipe here</span>
             </div>
             <form onSubmit={handleSubmit} className="search-field">
-                <input className="search-bar" type="text" value={searchParams} onChange={handleChange}/>
+                <input className="search-bar" type="text" value={searchParams} onChange={handleChange} onFocus={() => {setFocused(true)}} onBlur={disableFocus} />
                 <input className="search-button" type="submit" value="🔍"/>
             </form>
+            <AutofillSearch searchParams={searchParams} focused={focused}/>
         </div>
     )
 }

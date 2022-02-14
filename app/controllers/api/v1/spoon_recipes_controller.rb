@@ -9,7 +9,7 @@ class Api::V1::SpoonRecipesController < ApplicationController
     end
 
     def strong_params
-        params.permit(:search, :offset, :sort)
+        params.permit(:search, :offset, :sort, :number)
     end
 
 end

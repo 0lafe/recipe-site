@@ -1,0 +1,29 @@
+.search-fill {
+    width: 100%;
+    background: whitesmoke;
+    position: absolute;
+    border-left: solid dimgray 2px;
+    border-right: solid dimgray 2px;
+    border-bottom: solid dimgray 2px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.2);
+}
+
+.search-spinner {
+    padding: 5rem;
+}
+
+.search-results {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px;
+}
+
+.search-fill-container{
+    width: 51.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+}
