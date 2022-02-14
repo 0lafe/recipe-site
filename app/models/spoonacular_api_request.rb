@@ -5,4 +5,5 @@ class SpoonacularApiRequest < ApplicationRecord
     def self.increase_calls(quantity)
         SpoonacularApiRequest.create(requests: (SpoonacularApiRequest.last.requests + quantity.to_i))
     end
+    
 end

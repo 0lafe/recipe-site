@@ -13,7 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 
-
 /node_modules
 /yarn-error.log
 
@@ -27,7 +26,3 @@
 /public/packs-test
 yarn-debug.log*
 .yarn-integrity
-
-#installed dependencies 
-yarn.lock
-Gemfile.lock
