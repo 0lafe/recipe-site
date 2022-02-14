@@ -21,7 +21,6 @@ class Spoonacular
             sort = "&sort=#{receivedData[:sort]}"
         end
 
-
         number = ""
         if (receivedData[:number])
             number = "&number=#{receivedData[:number]}"

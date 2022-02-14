@@ -5,6 +5,7 @@ import AutofillSearch from "../helpers/AutofillSearch"
 const RecipeSearch = ({ setRecipes }) => {
     const [searchParams, setSearchParams] = useState("")
     const [searched, setSearched] = useState(false)
+    const [focused, setFocused] = useState(false)
 
     const handleChange = (event) => {
         setSearchParams(event.currentTarget.value)
@@ -16,6 +17,10 @@ const RecipeSearch = ({ setRecipes }) => {
             setSearched(true)
             setRecipes([])
         }
+    }
+
+    const disableFocus = () => {
+        setTimeout(() => {setFocused(false)}, 250)
     }
 
     if (searched) {
@@ -30,10 +35,10 @@ const RecipeSearch = ({ setRecipes }) => {
                 <span>Search for a recipe here</span>
             </div>
             <form onSubmit={handleSubmit} className="search-field">
-                <input className="search-bar" type="text" value={searchParams} onChange={handleChange}/>
+                <input className="search-bar" type="text" value={searchParams} onChange={handleChange} onFocus={() => {setFocused(true)}} onBlur={disableFocus} />
                 <input className="search-button" type="submit" value="🔍"/>
             </form>
-            <AutofillSearch searchParams={searchParams}/>
+            <AutofillSearch searchParams={searchParams} focused={focused}/>
         </div>
     )
 }
