@@ -48,9 +48,9 @@ const AutofillSearch = ({ searchParams, focused }) => {
     }
 
     return (
-            <div className="search-fill-container">
-                { toggle && tiles }
-            </div>
+        <div className="search-fill-container">
+            { toggle && tiles }
+        </div>
     )
 }
 

@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function MuiSelect({options, callback, selected}) {
+export default function MuiSelect({options, callback, selected, name}) {
 
   const handleChange = (event) => {
     callback(event.target.value);
@@ -14,12 +14,12 @@ export default function MuiSelect({options, callback, selected}) {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Sort Type</InputLabel>
+        <InputLabel id="demo-simple-select-label">{name}</InputLabel>
         <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={selected}
-            label="Sort Type"
+            label={name}
             onChange={handleChange}
         >
           {options.map(option => {

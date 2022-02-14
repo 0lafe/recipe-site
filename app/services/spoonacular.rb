@@ -2,7 +2,7 @@ class Spoonacular
 
     SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes/"
     API_ADDITION = "?apiKey=#{ENV["SPOONACULAR_API_KEY"]}"
-    QUANTITY = 100
+    SEED_QUANTITY = 100
     #scaling factor is here to avoid floats and only use ints
     SCALING_FACTOR = 100
     MAX_REQUESTS = ENV["REQUEST_LIMIT"].to_i * SCALING_FACTOR
@@ -16,18 +16,20 @@ class Spoonacular
             offset = "&offset=#{receivedData[:offset]}"
         end
 
-        sort = ""
+        sort = "popularity"
         if (receivedData[:sort])
             sort = "&sort=#{receivedData[:sort]}"
         end
 
         number = ""
+        quantity = 10
         if (receivedData[:number])
             number = "&number=#{receivedData[:number]}"
+            quantity = receivedData[:number].to_i
         end
 
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}#{offset}#{sort}#{number}"
-        SpoonacularApiRequest.increase_calls((1 + 0.01 * 10) * SCALING_FACTOR)
+        SpoonacularApiRequest.increase_calls((1 + (0.01 * quantity)) * SCALING_FACTOR)
         return get_data(url)
     end
 
@@ -40,10 +42,10 @@ class Spoonacular
 
     def self.daily_random_seed
         type = "random"
-        params = "&number=#{QUANTITY}"
+        params = "&number=#{SEED_QUANTITY}"
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
         store_recipe_data(get_data(url)["recipes"])
-        SpoonacularApiRequest.increase_calls((1 + 0.01 * QUANTITY) * SCALING_FACTOR)
+        SpoonacularApiRequest.increase_calls((1 + 0.01 * SEED_QUANTITY) * SCALING_FACTOR)
     end
 
     def self.store_recipe_data(data)

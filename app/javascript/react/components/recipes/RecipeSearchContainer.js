@@ -22,7 +22,7 @@ const RecipeSearchContainer = ({ recipes, setRecipes, routeProps }) => {
     useEffect(() => {
         getRecipes(routeProps.match.params.query)
         setTiles(<div className="loader cell small-12"><BeatLoader /></div>)
-    }, [page, searchType])
+    }, [page, searchType, maxPerPage])
 
     useEffect(() => {
         if (recipes.length > 0) {
@@ -33,7 +33,8 @@ const RecipeSearchContainer = ({ recipes, setRecipes, routeProps }) => {
     const createTiles = () => {
         return (recipes.map(recipe => {
             return (
-                <RecipeIndexTile key={recipe.id}
+                <RecipeIndexTile 
+                key={recipe.id}
                 classname="recipe-tile cell small-8"
                 recipe={recipe}/>
             )
@@ -42,7 +43,7 @@ const RecipeSearchContainer = ({ recipes, setRecipes, routeProps }) => {
     }
 
     const createParams = (searchParam) => {
-        return `/api/v1/spoon_recipes?search=${searchParam}&offset=${maxPerPage * (page-1)}&sort=${searchType}`
+        return `/api/v1/spoon_recipes?search=${searchParam}&offset=${maxPerPage * (page-1)}&sort=${searchType}&number=${maxPerPage}`
     }
 
     const getRecipes = async (searchParam) => {
@@ -57,6 +58,10 @@ const RecipeSearchContainer = ({ recipes, setRecipes, routeProps }) => {
         setPage(1)
     }
 
+    const handlePerPageChange = (value) => {
+        setMaxPerPage(value)
+    }
+
     const changePage = (event, value) => {
         setPage(value)
     }
@@ -69,9 +74,16 @@ const RecipeSearchContainer = ({ recipes, setRecipes, routeProps }) => {
                         <span className="search-text">Showing results {maxPerPage * (page-1) + 1} to {Math.min(page * maxPerPage, totalResults)} out of {totalResults}</span>
                         <div className="search-text sorting">
                             <MuiSelect 
+                            options={[10, 25, 50]} 
+                            callback={handlePerPageChange} 
+                            selected={maxPerPage}
+                            name="Per Page"/>
+
+                            <MuiSelect 
                             options={searchTypeOptions} 
                             callback={handleSearchChange} 
-                            selected={searchType}/>
+                            selected={searchType}
+                            name="Sort Type"/>
                         </div>
                     </div>
                 </div>
