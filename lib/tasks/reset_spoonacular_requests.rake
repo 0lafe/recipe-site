@@ -3,8 +3,7 @@ require './config/environment'
 namespace :spoonAPI do |args|
     
     task :reset => [ :environment ] do
-        SpoonacularApiRequest.delete_all
-        SpoonacularApiRequest.create(requests: 0)
+        SpoonacularApiRequest.reset
     end
 
     task :set => [ :environment ] do

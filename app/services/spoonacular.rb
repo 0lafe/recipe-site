@@ -3,9 +3,6 @@ class Spoonacular
     SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes/"
     API_ADDITION = "?apiKey=#{ENV["SPOONACULAR_API_KEY"]}"
     SEED_QUANTITY = 100
-    #scaling factor is here to avoid floats and only use ints
-    SCALING_FACTOR = 100
-    MAX_REQUESTS = ENV["REQUEST_LIMIT"].to_i * SCALING_FACTOR
 
     def self.get_by_name(receivedData)
         type = "complexSearch"
@@ -29,23 +26,25 @@ class Spoonacular
         end
 
         url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}#{offset}#{sort}#{number}"
-        SpoonacularApiRequest.increase_calls((1 + (0.01 * quantity)) * SCALING_FACTOR)
+        SpoonacularApiRequest.search(quantity)
         return get_data(url)
     end
 
     def self.get_by_id(id)
-        type = "#{id}/information"
-        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}"
-        SpoonacularApiRequest.increase_calls(1 * SCALING_FACTOR)
-        return store_one_recipe(get_data(url))
+        url = "#{SPOONACULAR_API_URL}#{id}/information#{API_ADDITION}"
+        SpoonacularApiRequest.get_by_id
+        recipe = get_data(url)
+        if recipe[:error]
+            return recipe
+        else
+            return store_one_recipe(recipe)
+        end
     end
 
     def self.daily_random_seed
-        type = "random"
-        params = "&number=#{SEED_QUANTITY}"
-        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
+        url = "#{SPOONACULAR_API_URL}random#{API_ADDITION}&number=#{SEED_QUANTITY}"
+        SpoonacularApiRequest.search(SEED_QUANTITY)
         store_recipe_data(get_data(url)["recipes"])
-        SpoonacularApiRequest.increase_calls((1 + 0.01 * SEED_QUANTITY) * SCALING_FACTOR)
     end
 
     def self.store_recipe_data(data)
@@ -69,7 +68,7 @@ class Spoonacular
     end
 
     def self.get_data(url)
-        if SpoonacularApiRequest.last.requests.to_i < MAX_REQUESTS
+        if SpoonacularApiRequest.requests_left?
             api_response = Faraday.get(url)
             parsed_response = JSON.parse(api_response.body)
             return parsed_response
