@@ -3,7 +3,6 @@ class Spoonacular
     SPOONACULAR_API_URL = "https://api.spoonacular.com/recipes/"
     API_ADDITION = "?apiKey=#{ENV["SPOONACULAR_API_KEY"]}"
     SEED_QUANTITY = 100
-    #scaling factor is here to avoid floats and only use ints
 
     def self.get_by_name(receivedData)
         type = "complexSearch"
@@ -32,8 +31,7 @@ class Spoonacular
     end
 
     def self.get_by_id(id)
-        type = "#{id}/information"
-        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}"
+        url = "#{SPOONACULAR_API_URL}#{id}/information#{API_ADDITION}"
         SpoonacularApiRequest.get_by_id
         recipe = get_data(url)
         if recipe[:error]
@@ -44,9 +42,7 @@ class Spoonacular
     end
 
     def self.daily_random_seed
-        type = "random"
-        params = "&number=#{SEED_QUANTITY}"
-        url = "#{SPOONACULAR_API_URL}#{type}#{API_ADDITION}#{params}"
+        url = "#{SPOONACULAR_API_URL}random#{API_ADDITION}&number=#{SEED_QUANTITY}"
         SpoonacularApiRequest.search(SEED_QUANTITY)
         store_recipe_data(get_data(url)["recipes"])
     end
